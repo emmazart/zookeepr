@@ -1,6 +1,6 @@
 const express = require('express');
 const { animals } = require('./data/animals.json');
-
+const PORT = process.env.PORT || 3001;
 // instantiate the server
 const app = express();
 
@@ -74,6 +74,6 @@ app.get('/api/animals', (req, res) => {
 });
 
 // chain listen method to server
-app.listen(3001, () => {
-    console.log(`API server is now on port 3001!`);
+app.listen(PORT, () => {
+    console.log(`API server is now on port ${PORT}!`);
 });
