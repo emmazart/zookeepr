@@ -50,7 +50,11 @@ function filterByQuery(query, animalsArray) {
     return filteredResults;
 }
 
-
+// takes in the id and array of animals and returns a single animal object
+function findById(id, animalsArray) {
+    const result = animalsArray.filter(animal => animal.id === id)[0];
+    return result;
+}
 
 
 
@@ -71,6 +75,18 @@ app.get('/api/animals', (req, res) => {
     // send method from res parameter
     // res.send('Hello!');
     res.json(results);
+});
+
+
+app.get('/api/animals/:id', (req, res) => {
+    const result = findById(req.params.id, animals);
+    // if there is a result, return it
+    if (result){
+        res.json(result);
+    // else send 404 error
+    } else {
+        res.send(404);
+    }
 });
 
 // chain listen method to server
