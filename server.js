@@ -99,6 +99,9 @@ function validateAnimal(animal){
 
 
 
+app.get('/', (req, res) =>
+  res.sendFile(path.join(__dirname, '/index.html'))
+);
 
 
 // GETTING DATA FROM API
